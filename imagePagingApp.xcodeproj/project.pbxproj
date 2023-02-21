@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FEFAEC429A48DD9009663E7 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFAEC329A48DD9009663E7 /* ImageDetailView.swift */; };
+		4FEFAEC629A49DEF009663E7 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFAEC529A49DEF009663E7 /* ZoomableScrollView.swift */; };
 		C1D0CCAF29592EF6006E28A7 /* imagePagingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0CCAE29592EF6006E28A7 /* imagePagingAppApp.swift */; };
 		C1D0CCB129592EF6006E28A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0CCB029592EF6006E28A7 /* ContentView.swift */; };
 		C1D0CCB329592EF8006E28A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D0CCB229592EF8006E28A7 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FEFAEC329A48DD9009663E7 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		4FEFAEC529A49DEF009663E7 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		C1D0CCAB29592EF6006E28A7 /* imagePagingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imagePagingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D0CCAE29592EF6006E28A7 /* imagePagingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePagingAppApp.swift; sourceTree = "<group>"; };
 		C1D0CCB029592EF6006E28A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				C1D0CCD929593087006E28A7 /* HomeView.swift */,
 				C1D0CCDD29593282006E28A7 /* GridItemImageView.swift */,
 				C1D0CCDF29596209006E28A7 /* ImageView.swift */,
+				4FEFAEC329A48DD9009663E7 /* ImageDetailView.swift */,
+				4FEFAEC529A49DEF009663E7 /* ZoomableScrollView.swift */,
 				C1D0CCDB29593092006E28A7 /* HomeViewModel.swift */,
 				C1D0CCB229592EF8006E28A7 /* Assets.xcassets */,
 				C1D0CCB429592EF8006E28A7 /* imagePagingApp.entitlements */,
@@ -272,10 +278,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1D0CCE029596209006E28A7 /* ImageView.swift in Sources */,
+				4FEFAEC429A48DD9009663E7 /* ImageDetailView.swift in Sources */,
 				C1D0CCDA29593087006E28A7 /* HomeView.swift in Sources */,
 				C1D0CCB129592EF6006E28A7 /* ContentView.swift in Sources */,
 				C1D0CCAF29592EF6006E28A7 /* imagePagingAppApp.swift in Sources */,
 				C1D0CCDC29593092006E28A7 /* HomeViewModel.swift in Sources */,
+				4FEFAEC629A49DEF009663E7 /* ZoomableScrollView.swift in Sources */,
 				C1D0CCDE29593282006E28A7 /* GridItemImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

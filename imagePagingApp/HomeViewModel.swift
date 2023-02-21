@@ -24,17 +24,21 @@ class HomeViewModel:ObservableObject {
     
     func onChaned(value:CGSize) {
         // updating offset
-        imageViewerOffset = value
         
-        // calc opacity
-        let helgHeight = UIScreen.main.bounds.height / 2
-        
-        let progress = imageViewerOffset.height / helgHeight
-        
-        withAnimation(.default) {
-            bgOpacity = Double(1 - (progress < 0 ? -progress:progress))
+        DispatchQueue.main.async {
+            self.imageViewerOffset = value
             
+            // calc opacity
+            let helgHeight = UIScreen.main.bounds.height / 2
+            
+            let progress = self.imageViewerOffset.height / helgHeight
+            
+            withAnimation(.default) {
+                self.bgOpacity = Double(1 - (progress < 0 ? -progress:progress))
+                
+            }
         }
+        
         
     }
     

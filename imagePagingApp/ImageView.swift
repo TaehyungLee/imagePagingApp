@@ -10,6 +10,9 @@ import SwiftUI
 struct ImageView: View {
     @EnvironmentObject var vm:HomeViewModel
     @GestureState var draggingOffset:CGSize = .zero
+    
+    @State var showDetail = false
+    
     var body: some View {
         ZStack {
             Color.black
@@ -20,30 +23,62 @@ struct ImageView: View {
             ScrollView(.init()) {
                 TabView(selection: $vm.selectedImageID) {
                     ForEach(vm.allImages, id: \.self) { image in
-                        Image(image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .tag(image)
-                            .scaleEffect(
-                                vm.selectedImageID == image ? (vm.imageScale > 1 ? vm.imageScale:1) : 1
-                            )
-                            .offset(y:vm.imageViewerOffset.height)
-                            .gesture(
-                                // magnification
-                                MagnificationGesture().onChanged({ value in
-                                    vm.imageScale = value
-                                }).onEnded({ _ in
-//                                    withAnimation(.spring()) {
-//                                        vm.imageScale = 1
-//                                    }
-                                })
-                                // Double to zoom
-                                    .simultaneously(with: TapGesture(count: 2).onEnded({ _ in
-                                        withAnimation {
-                                            vm.imageScale = vm.imageScale > 1 ? 1 : 4
+                        ZStack {
+                            Image(image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .tag(image)
+                                .scaleEffect(
+                                    vm.selectedImageID == image ? (vm.imageScale > 1 ? vm.imageScale:1) : 1
+                                )
+                                .offset(y:vm.imageViewerOffset.height)
+                                .gesture(
+                                    // magnification
+                                    MagnificationGesture().onChanged({ value in
+                                        vm.imageScale = value
+                                    }).onEnded({ _ in
+    //                                    withAnimation(.spring()) {
+    //                                        vm.imageScale = 1
+    //                                    }
+                                    })
+                                    // Double to zoom
+                                        .simultaneously(with: TapGesture(count: 2).onEnded({ _ in
+                                            withAnimation {
+                                                vm.imageScale = vm.imageScale > 1 ? 1 : 4
+                                            }
+                                        }))
+                                )
+                            
+                            VStack {
+                                Spacer()
+                                HStack{
+                                    Spacer()
+                                    Button {
+                                        showDetail.toggle()
+                                    } label: {
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke()
+                                                .foregroundColor(.pink)
+                                                .frame(width: 100, height: 40)
+                                            
+                                            Image(systemName: "plus.magnifyingglass")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .foregroundColor(.pink)
+                                                .frame(width: 30, height: 30)
                                         }
-                                    }))
-                            )
+                                        
+                                    }
+                                    .padding(.bottom, 100)
+                                }
+                                .padding(.trailing, 10)
+                            }
+                            .sheet(isPresented: $showDetail) {
+                                ImageDetailView(image: image)
+                            }
+                        }
+                        
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
